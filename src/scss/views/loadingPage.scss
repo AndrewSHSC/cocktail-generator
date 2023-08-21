@@ -1,0 +1,74 @@
+@use "../core/button" as button;
+@use "../imports/container" as container;
+@use "../imports/media" as media;
+
+@keyframes rotateAnimation {
+  from {
+      transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingPage {
+  background-color: var(--colour-lightBlack);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2000;
+
+  .loadingPageInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 5%;
+
+    h2 {
+      color: var(--colour-beige);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-top: 80px;
+
+      @include media.minWidth(tablet) {
+        font-size: 2.6rem;
+        margin-top: 60px;
+      }
+
+      @include media.minWidth(desktop) {
+        @include media.minHeight(null, 800px) {
+          font-size: 3.2rem;
+        }
+      }
+    }
+
+    svg {
+      width: 330px;
+      height: 330px;
+      animation: rotateAnimation 15s linear infinite;
+
+
+      @include media.minWidth(tablet) {
+        width: 380px;
+        height: 380px;
+      }
+
+      @include media.minWidth(smallDesktop) {
+        width: 420px;
+        height: 420px;
+      }
+
+      @include media.minWidth(desktop) {
+        @include media.minHeight(null, 800px) {
+          width: 503px;
+          height: 503px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use "../core/button" as button;
+@use "../imports/container" as container;
+@use "../imports/media" as media;
+
+.landingPage {
+  background-color: var(--colour-beige);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: clip;
+
+  .container {
+    @include container.container;
+    margin-bottom: 40px;
+
+    @include media.minWidth(tablet) {
+      margin-bottom: 60px;
+    }
+
+    @include media.minWidth(smallDesktop) {
+      margin-bottom: 80px;
+    }
+  }
+
+  svg {
+    width: 220px;
+    height: 80px;
+    margin: 0 auto;
+
+    @include media.minWidth(smallTablet) {
+      width: 360px;
+      height: 120px;
+    }
+
+    @include media.minWidth(tablet) {
+      width: 480px;
+      height: 160px;
+    }
+
+    @include media.minWidth(smallDesktop) {
+      width: 600px;
+      height: 200px;
+    }
+
+    @include media.minWidth(desktop) {
+      width: 755px;
+      height: 270px;
+    }
+  }
+
+  .buttonWrapper {
+    position: absolute;
+    bottom: 0;
+  }
+
+  button {
+    @include button.button;
+  }
+}
